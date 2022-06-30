@@ -26,17 +26,22 @@ class MainActivity : AppCompatActivity() {
         output = findViewById((R.id.tv_output))
 
         button?.setOnClickListener {
-            val nameLen = name?.text.toString().count()
-            val heightInt = height?.text.toString().toInt()
-            val weightFloat = weight?.text.toString().toFloat()
-            val ageInt = age?.text.toString().toInt()
+            if (height?.text.toString() != "" && weight?.text.toString() != ""
+                && age?.text.toString() != "")   {
+                val nameLen = name?.text.toString().count()
+                val heightInt = height?.text.toString().toInt()
+                val weightFloat = weight?.text.toString().toFloat()
+                val ageInt = age?.text.toString().toInt()
 
-            if (nameLen in 1..49
-                && heightInt in 1..249
-                && weightFloat > 0 && weightFloat < 250
-                && ageInt in 1..149) {
-                val value = (heightInt + weightFloat) / nameLen + ageInt
-                output?.text = "Ответ: $value"
+                if (nameLen in 1..50
+                    && heightInt in 1..249
+                    && weightFloat > 0 && weightFloat < 250
+                    && ageInt in 1..149) {
+                    val value = (heightInt + weightFloat) / nameLen + ageInt
+                    output?.text = "Ответ: $value"
+                } else {
+                    output?.text = "Данные введены некорректно."
+                }
             } else {
                 output?.text = "Данные введены некорректно."
             }
