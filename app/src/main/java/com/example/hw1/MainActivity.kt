@@ -32,9 +32,9 @@ class MainActivity : AppCompatActivity() {
             val ageInt = age?.text.toString().toInt()
 
             if (nameLen in 1..49
-                && heightInt in 0..249
+                && heightInt in 1..249
                 && weightFloat > 0 && weightFloat < 250
-                && ageInt in 0..149) {
+                && ageInt in 1..149) {
                 val value = (heightInt + weightFloat) / nameLen + ageInt
                 output?.text = "Ответ: $value"
             } else {
